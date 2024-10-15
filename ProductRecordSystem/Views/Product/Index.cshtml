@@ -1,0 +1,33 @@
+﻿@model IEnumerable<ProductRecordSystem.Models.Product>
+
+@{
+    ViewData["Title"] = "Product List";
+}
+
+<h5 class="card-header">Product List</h5>
+<table class="table table-bordered table-hover text-center">
+    <thead class="table-light">
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Color</th>
+            <th scope="col">Size (mm)</th>
+            <th scope="col">Part Number</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <th scope="row">@product.Id</th>
+                <th scope="row">@product.Name</th>
+                <th scope="row">@product.Color</th>
+                <th scope="row">@product.Size</th>
+                <th scope="row">@product.PartNumber</th>
+                <th scope="row"><a class="btn btn-primary" asp-action="Edit" asp-route-id="@product.Id">Edit</a></th>
+            </tr>
+        }
+    </tbody>
+</table>
